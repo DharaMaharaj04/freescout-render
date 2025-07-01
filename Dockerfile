@@ -15,14 +15,13 @@ RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl && \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && \
     docker-php-ext-install gd
 
-# 🔽 Install PHP extensions one by one to identify any failure
+# 🔽 Install PHP extensions (skip json - it's built-in!)
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install exif
 RUN docker-php-ext-install pcntl
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install zip
-RUN docker-php-ext-install json
 RUN docker-php-ext-install xml
 RUN docker-php-ext-install intl
 
